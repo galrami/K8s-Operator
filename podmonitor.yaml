@@ -1,0 +1,23 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  labels:
+    app: stream-pipeline-services
+    release: prometheus
+  name: stream-pipeline-services
+  namespace: prometheus
+spec:
+  namespaceSelector:
+    matchNames:
+    - data-pipelines-qa
+    - data-pipelines-e2e
+    - data-pipelines-dev-sol
+  podMetricsEndpoints:
+  - interval: 30s
+    path: /metrics
+    port: metrics
+    scheme: http
+  selector:
+    matchLabels:
+      prometheus-monitored: "true"
+
