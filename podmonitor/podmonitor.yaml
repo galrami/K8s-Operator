@@ -4,7 +4,7 @@ metadata:
   labels:
     app: stream-pipeline-services
     release: prometheus
-  name: stream-pipeline-services
+  name: gal-test-pod-monitor
   namespace: prometheus
 spec:
   namespaceSelector:
